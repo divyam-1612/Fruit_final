@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost:8080/faqs"
+export const baseURL = "https://fruit-server-8ole.onrender.com/faqs"
