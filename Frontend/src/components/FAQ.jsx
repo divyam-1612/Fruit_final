@@ -10,15 +10,19 @@ const FAQ = () => {
   const [tasks, setTasks] = useState([]);
   const [updateUI, setUpdateUI] = useState(false);
   const [updateId, setUpdateId] = useState(null);
+  const[loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios.get(`${baseURL}`).then((res) => {
       console.log(res.data); // Check the format of res.data
       if (Array.isArray(res.data)) {
         setTasks(res.data);
-      } else {
+      }
+       else {
         console.error("API response is not an array");
       }
+      setLoading(false)
     });
   }, [updateUI]);
 
@@ -69,10 +73,11 @@ const FAQ = () => {
           {updateId ? "update" : "Create"}
         </button>
       </div>
+      {/* Loader */}
+      {loading ? (
+        <div className="pt-10 text-white text-5xl">Loading...</div>
+      ) : (
         <div className="grid grid-rows-3 grid-flow-col pt-10">
-        {/* {faqs.map((element) => {
-            <Lists
-        })} */}
           {tasks.map((task) => (
             <Lists
               key={task._id}
@@ -83,6 +88,7 @@ const FAQ = () => {
             />
           ))}
         </div>
+      )}
     </div>
   );
 };
