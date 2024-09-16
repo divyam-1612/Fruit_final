@@ -27,10 +27,10 @@ const TranslatorPage = () => {
 
   return (
     <div className="h-screen w-screen bg-custom-gradient flex flex-col items-center font-sakal">
-      <div className="text-[6rem] text-[#FFFFFF] pt-10 font-bold uppercase">
+      <div className=" text-[3rem] md:text-[6rem] text-[#FFFFFF] pt-10 font-bold uppercase">
         Translator
       </div>
-      <div className="flex flex-row items-center gap-10">
+      <div className="flex flex-col md:flex-row items-center gap-10">
         <textarea
           className="w-[20rem] h-[6rem] p-5 text-2xl"
           rows="6"
@@ -75,7 +75,7 @@ const TranslatorPage = () => {
         </button>
       </div>
 
-      <div className="flex gap-4 text-3xl pt-10">
+      <div className="flex gap-4 text-xl md:text-3xl pt-10">
         <h2 className="">Translated Text:</h2>
         <p className="">
           {translatedText || "Your translated text will appear here..."}
